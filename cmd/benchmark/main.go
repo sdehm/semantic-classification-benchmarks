@@ -8,9 +8,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/sdehm/jev-classify-test/internal/benchmark"
-	"github.com/sdehm/jev-classify-test/internal/datasets"
-	"github.com/sdehm/jev-classify-test/internal/jev"
+	"github.com/sdehm/semantic-classification-benchmarks/internal/benchmark"
+	"github.com/sdehm/semantic-classification-benchmarks/internal/datasets"
+	"github.com/sdehm/semantic-classification-benchmarks/internal/jev"
 )
 
 func main() {

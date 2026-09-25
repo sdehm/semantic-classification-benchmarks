@@ -14,7 +14,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/sdehm/jev-classify-test/internal/benchmark"
+	"github.com/sdehm/semantic-classification-benchmarks/internal/benchmark"
 )
 
 type Banking77Manifest struct {

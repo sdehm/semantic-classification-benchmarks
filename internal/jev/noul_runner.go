@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sdehm/jev-classify-test/internal/benchmark"
+	"github.com/sdehm/semantic-classification-benchmarks/internal/benchmark"
 )
 
 const (

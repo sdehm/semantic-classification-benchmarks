@@ -1,4 +1,4 @@
-module github.com/sdehm/jev-classify-test
+module github.com/sdehm/semantic-classification-benchmarks
 
 go 1.25.0
 

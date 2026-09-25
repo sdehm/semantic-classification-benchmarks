@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sdehm/jev-classify-test/internal/benchmark"
+	"github.com/sdehm/semantic-classification-benchmarks/internal/benchmark"
 )
 
 func TestParseMultiEURLEXJSONL(t *testing.T) {
