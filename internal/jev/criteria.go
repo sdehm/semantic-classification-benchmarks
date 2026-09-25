@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/sdehm/jev-classify-test/internal/benchmark"
+	"github.com/sdehm/semantic-classification-benchmarks/internal/benchmark"
 )
 
 // EnrichCriteriaWithTrainingExamples appends deterministic, label-matched

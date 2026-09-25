@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/sdehm/jev-classify-test/internal/benchmark"
+	"github.com/sdehm/semantic-classification-benchmarks/internal/benchmark"
 )
 
 type GoEmotionsManifest struct {

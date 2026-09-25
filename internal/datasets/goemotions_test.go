@@ -3,7 +3,7 @@ package datasets
 import (
 	"testing"
 
-	"github.com/sdehm/jev-classify-test/internal/benchmark"
+	"github.com/sdehm/semantic-classification-benchmarks/internal/benchmark"
 )
 
 func TestParseGoEmotionsTSV(t *testing.T) {
