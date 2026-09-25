@@ -1,0 +1,86 @@
+{
+  "100142: politics": {
+    "true": "The document substantively concerns political institutions, political activity, public governance, elections, parties, or political rights and relations.",
+    "false": "The document does not materially address politics or political governance."
+  },
+  "100143: international relations": {
+    "true": "The document substantively concerns relations, cooperation, agreements, aid, or disputes between states or international actors.",
+    "false": "The document does not materially address international relations."
+  },
+  "100144: EUROPEAN UNION": {
+    "true": "The document substantively concerns European Union institutions, membership, internal functioning, legal instruments, or Union-level policy.",
+    "false": "The document does not materially address the European Union as an institution or policy actor."
+  },
+  "100145: law": {
+    "true": "The document substantively establishes, interprets, applies, or changes legal rules, legal procedures, rights, duties, or judicial matters.",
+    "false": "The document does not materially address law or legal procedure."
+  },
+  "100146: economics": {
+    "true": "The document substantively concerns economic policy, markets, macroeconomic conditions, economic analysis, or economic development.",
+    "false": "The document does not materially address economics."
+  },
+  "100147: trade": {
+    "true": "The document substantively concerns trade in goods or services, commercial exchange, tariffs, import/export rules, or trade agreements.",
+    "false": "The document does not materially address trade."
+  },
+  "100148: finance": {
+    "true": "The document substantively concerns public or private finance, budgets, taxation, financial markets, banking, credit, or monetary matters.",
+    "false": "The document does not materially address finance."
+  },
+  "100149: social questions": {
+    "true": "The document substantively concerns social policy, social protection, equality, living conditions, family matters, or social inclusion.",
+    "false": "The document does not materially address social questions."
+  },
+  "100150: education and communications": {
+    "true": "The document substantively concerns education, training, culture, information, media, telecommunications, or communications policy.",
+    "false": "The document does not materially address education or communications."
+  },
+  "100151: science": {
+    "true": "The document substantively concerns scientific research, scientific cooperation, research policy, or scientific knowledge.",
+    "false": "The document does not materially address science."
+  },
+  "100152: business and competition": {
+    "true": "The document substantively concerns businesses, company activity, entrepreneurship, competition rules, state aid, or market competition.",
+    "false": "The document does not materially address business or competition."
+  },
+  "100153: employment and working conditions": {
+    "true": "The document substantively concerns employment, labour markets, workers, wages, workplace rights, occupational safety, or working conditions.",
+    "false": "The document does not materially address employment or working conditions."
+  },
+  "100154: transport": {
+    "true": "The document substantively concerns transport systems, vehicles, transport infrastructure, traffic, carriage, or mobility policy.",
+    "false": "The document does not materially address transport."
+  },
+  "100155: environment": {
+    "true": "The document substantively concerns environmental protection, natural resources, pollution, climate, waste, conservation, or environmental risks.",
+    "false": "The document does not materially address the environment."
+  },
+  "100156: agriculture, forestry and fisheries": {
+    "true": "The document substantively concerns farming, forestry, fisheries, rural production, agricultural policy, or management of those resources.",
+    "false": "The document does not materially address agriculture, forestry, or fisheries."
+  },
+  "100157: agri-foodstuffs": {
+    "true": "The document substantively concerns food products, food supply chains, food safety, food labelling, agricultural commodities, or food markets.",
+    "false": "The document does not materially address agri-foodstuffs."
+  },
+  "100158: production, technology and research": {
+    "true": "The document substantively concerns industrial production, technology, innovation, technical standards, research and development, or manufacturing.",
+    "false": "The document does not materially address production, technology, or research."
+  },
+  "100159: energy": {
+    "true": "The document substantively concerns energy supply, fuels, electricity, energy markets, energy infrastructure, efficiency, or energy policy.",
+    "false": "The document does not materially address energy."
+  },
+  "100160: industry": {
+    "true": "The document substantively concerns industrial sectors, industrial policy, industrial restructuring, or industrial development.",
+    "false": "The document does not materially address industry."
+  },
+  "100161: geography": {
+    "true": "The document substantively concerns geographic areas, regions, territorial organization, land, spatial development, or regional policy.",
+    "false": "The document does not materially address geography or territorial development."
+  },
+  "100162: international organisations": {
+    "true": "The document substantively concerns international organisations, their membership, governance, programmes, cooperation, or relations with them.",
+    "false": "The document does not materially address international organisations."
+  }
+}

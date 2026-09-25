@@ -1,0 +1,16 @@
+# Downloaded datasets and benchmark outputs can be regenerated from manifests.
+data/*
+!data/.gitkeep
+runs/
+
+# Local credentials must not be committed.
+.env
+.env.*
+.venv/
+__pycache__/
+
+# Finder metadata.
+.DS_Store
+
+# Unpublished article drafts stay local.
+drafts/*

@@ -1,0 +1,13 @@
+{
+  "id": "answerdotai/ModernBERT-base",
+  "revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+  "license": "Apache-2.0",
+  "pooling": "masked_mean",
+  "normalize_embeddings": true,
+  "max_length": 256,
+  "logistic_regression": {
+    "regularization_c": 100.0,
+    "max_iter": 1000,
+    "seed": 20260920
+  }
+}

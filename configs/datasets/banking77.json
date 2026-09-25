@@ -1,0 +1,15 @@
+{
+  "id": "banking77",
+  "license": "CC-BY-4.0",
+  "source_repository": "https://github.com/PolyAI-LDN/task-specific-datasets",
+  "source_revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+  "train_url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/train.csv",
+  "train_blob": "98e2543cf482d0dca7bfb175ebe35d98efad95be",
+  "train_records": 10003,
+  "test_url": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/57ec275d8078af65b7731c2a98be812d844a6d6b/banking_data/test.csv",
+  "test_blob": "799687a8367359432985b8b13d85a2baf73f92dd",
+  "test_records": 3080,
+  "validation_seed": "banking77-validation-v1",
+  "validation_fraction": 0.1,
+  "citation": "Casanueva et al. (2020), Efficient Intent Detection with Dual Sentence Encoders, ACL 2020."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "goemotions-simplified",
+  "license": "Apache-2.0",
+  "source_repository": "https://github.com/google-research/google-research",
+  "source_revision": "4700efb9afa54286b0e04473ba80a13e8461e25f",
+  "train_url": "https://raw.githubusercontent.com/google-research/google-research/4700efb9afa54286b0e04473ba80a13e8461e25f/goemotions/data/train.tsv",
+  "train_blob": "aa00d732d3b9e969d9fcbaafc2c5b094555746c0",
+  "train_records": 43410,
+  "validation_url": "https://raw.githubusercontent.com/google-research/google-research/4700efb9afa54286b0e04473ba80a13e8461e25f/goemotions/data/dev.tsv",
+  "validation_blob": "38c793645ca3a2e946d625c9722ca5386b0a6c7f",
+  "validation_records": 5426,
+  "test_url": "https://raw.githubusercontent.com/google-research/google-research/4700efb9afa54286b0e04473ba80a13e8461e25f/goemotions/data/test.tsv",
+  "test_blob": "7635db4a49befb91e5bc0dbedde095bb2d8593ae",
+  "test_records": 5427,
+  "labels_url": "https://raw.githubusercontent.com/google-research/google-research/4700efb9afa54286b0e04473ba80a13e8461e25f/goemotions/data/emotions.txt",
+  "labels_blob": "0d79bc030e766bc9dac1f4482bfbd864556c284a",
+  "label_count": 28,
+  "citation": "Demszky et al. (2020), GoEmotions: A Dataset of Fine-Grained Emotions, ACL 2020."
+}

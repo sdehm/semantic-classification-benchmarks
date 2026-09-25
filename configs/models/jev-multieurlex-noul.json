@@ -1,0 +1,28 @@
+{
+  "id": "jev-1.13.0",
+  "task": "multieurlex-english-level1",
+  "criteria_path": "configs/datasets/multieurlex-noul-criteria.json",
+  "criteria_sha256": "439221d0b5e0f13ac1636c02ec27c4d19d5a3a94ac52245a1056a282269218d1",
+  "state": {
+    "field": "document",
+    "max_characters": 100000,
+    "truncation": "head-tail",
+    "omission_marker": "[... document middle omitted to fit the configured context limit ...]"
+  },
+  "question_template": "Does `document` substantively address the EUROVOC concept %s?",
+  "empty_prediction_policy": "highest-probability",
+  "validation_threshold_selection": {
+    "candidates": {
+      "start": 0.05,
+      "stop": 0.95,
+      "step": 0.01
+    },
+    "metric": "macro_f1",
+    "selected_threshold": 0.27,
+    "selected_macro_f1": 0.46186066548168536
+  },
+  "test": {
+    "max_cost_usd": 1.5,
+    "max_input_tokens_per_request": 64000
+  }
+}

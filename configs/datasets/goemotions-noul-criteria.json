@@ -1,0 +1,110 @@
+{
+  "admiration": {
+    "true": "The author expresses respect, praise, or being impressed by a person, action, or quality.",
+    "false": "The author does not express admiration."
+  },
+  "amusement": {
+    "true": "The author finds something funny, entertaining, or playful.",
+    "false": "The author does not express amusement."
+  },
+  "anger": {
+    "true": "The author expresses strong anger, fury, or hostility.",
+    "false": "The author does not express anger."
+  },
+  "annoyance": {
+    "true": "The author expresses irritation or a mild complaint.",
+    "false": "The author does not express annoyance."
+  },
+  "approval": {
+    "true": "The author judges something as good, right, acceptable, or worthy.",
+    "false": "The author does not express approval."
+  },
+  "caring": {
+    "true": "The author expresses concern, support, or care for someone's welfare.",
+    "false": "The author does not express caring."
+  },
+  "confusion": {
+    "true": "The author expresses uncertainty, puzzlement, or lack of understanding.",
+    "false": "The author does not express confusion."
+  },
+  "curiosity": {
+    "true": "The author expresses interest in learning or finding out more.",
+    "false": "The author does not express curiosity."
+  },
+  "desire": {
+    "true": "The author expresses wanting, wishing for, or hoping to obtain something.",
+    "false": "The author does not express desire."
+  },
+  "disappointment": {
+    "true": "The author expresses dissatisfaction because an expectation was not met.",
+    "false": "The author does not express disappointment."
+  },
+  "disapproval": {
+    "true": "The author judges something as wrong, bad, unacceptable, or deserving criticism.",
+    "false": "The author does not express disapproval."
+  },
+  "disgust": {
+    "true": "The author expresses revulsion, repulsion, or being grossed out.",
+    "false": "The author does not express disgust."
+  },
+  "embarrassment": {
+    "true": "The author expresses personal shame or self-consciousness about an awkward situation.",
+    "false": "The author does not express embarrassment."
+  },
+  "excitement": {
+    "true": "The author expresses energized enthusiasm or eager anticipation.",
+    "false": "The author does not express excitement."
+  },
+  "fear": {
+    "true": "The author expresses being afraid of a threat, danger, or harmful outcome.",
+    "false": "The author does not express fear."
+  },
+  "gratitude": {
+    "true": "The author expresses thanks or appreciation.",
+    "false": "The author does not express gratitude."
+  },
+  "grief": {
+    "true": "The author expresses sorrow over a significant loss or bereavement.",
+    "false": "The author does not express grief."
+  },
+  "joy": {
+    "true": "The author expresses happiness, delight, or pleasure.",
+    "false": "The author does not express joy."
+  },
+  "love": {
+    "true": "The author expresses affection, romantic love, or familial love.",
+    "false": "The author does not express love."
+  },
+  "nervousness": {
+    "true": "The author expresses anxious apprehension, unease, or tension.",
+    "false": "The author does not express nervousness."
+  },
+  "optimism": {
+    "true": "The author expresses hope or a positive expectation about the future.",
+    "false": "The author does not express optimism."
+  },
+  "pride": {
+    "true": "The author expresses satisfaction in an achievement, identity, or affiliation.",
+    "false": "The author does not express pride."
+  },
+  "realization": {
+    "true": "The author expresses a new discovery, insight, or coming to understand something.",
+    "false": "The author does not express realization."
+  },
+  "relief": {
+    "true": "The author expresses the release of worry, pressure, or discomfort.",
+    "false": "The author does not express relief."
+  },
+  "remorse": {
+    "true": "The author expresses regret or guilt for a wrongdoing.",
+    "false": "The author does not express remorse."
+  },
+  "sadness": {
+    "true": "The author expresses unhappiness or sorrow that is not specifically grief over a major loss.",
+    "false": "The author does not express sadness."
+  },
+  "surprise": {
+    "true": "The author expresses astonishment or that something was unexpected.",
+    "false": "The author does not express surprise."
+  }
+}

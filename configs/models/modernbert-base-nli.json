@@ -1,0 +1,13 @@
+{
+  "id": "tasksource/ModernBERT-base-nli",
+  "revision": "de4ab7e77845098b7fab7f6ab9d370ddff27b19c",
+  "license": "Apache-2.0",
+  "task": "zero-shot-classification",
+  "base_model": "answerdotai/ModernBERT-base",
+  "hypothesis_template": "This customer is asking about {}.",
+  "benchmark": {
+    "batch_size": 8,
+    "max_length": 256
+  },
+  "notes": "Run locally through the Transformers zero-shot-classification pipeline. This is a no-dataset-training baseline."
+}

@@ -1,0 +1,51 @@
+{
+  "id": "answerdotai/ModernBERT-base",
+  "revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+  "license": "Apache-2.0",
+  "pooling": "masked_mean",
+  "normalize_embeddings": true,
+  "max_length": 256,
+  "multi_label_logistic_regression": {
+    "regularization_c": 100.0,
+    "validation_regularization_candidates": [
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0,
+      30.0,
+      100.0,
+      300.0
+    ],
+    "max_iter": 1000,
+    "seed": 20260920,
+    "threshold_candidates": [
+      0.05,
+      0.06,
+      0.07,
+      0.08,
+      0.09,
+      0.1,
+      0.11,
+      0.12,
+      0.13,
+      0.14,
+      0.15,
+      0.16,
+      0.17,
+      0.18,
+      0.19,
+      0.2,
+      0.21,
+      0.22,
+      0.23,
+      0.24,
+      0.25,
+      0.26,
+      0.27,
+      0.28,
+      0.29,
+      0.3
+    ]
+  }
+}
