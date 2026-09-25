@@ -11,6 +11,8 @@ replacement for Jev.
 All scores below are from frozen, complete test runs. Macro F1 is meaningful
 within a dataset, not across the three different label spaces.
 
+![Frozen test macro F1 for Jev and the best local supervised model on each dataset](assets/test-macro-f1.svg)
+
 | Dataset (test size) | Local reference | Jev | Best local supervised model |
 | --- | ---: | ---: | ---: |
 | BANKING77 (3,080) | Frozen embeddings + logistic regression **0.8816**; zero-shot NLI **0.6207** | Choice **0.8445** | Fine-tuned sentence-transformer + prototypes **0.8981** |
