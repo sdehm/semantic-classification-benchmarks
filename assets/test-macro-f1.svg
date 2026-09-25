@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-labelledby="title description">
+  <title id="title">Frozen test macro F1 by dataset</title>
+  <desc id="description">BANKING77: Jev 0.8445, best local 0.8981. GoEmotions: Jev 0.3437, best local 0.5411. English MultiEURLEX level 1: Jev 0.4671, best local 0.6013. Compare models within each dataset only; MultiEURLEX uses different input context policies.</desc>
+  <rect width="900" height="420" fill="#ffffff"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#111827">
+    <text x="24" y="35" font-size="22" font-weight="bold">Frozen test macro F1</text>
+    <rect x="240" y="62" width="16" height="16" fill="#1d4ed8"/>
+    <text x="264" y="75" font-size="15">Jev</text>
+    <rect x="380" y="62" width="16" height="16" fill="#b45309"/>
+    <text x="404" y="75" font-size="15">Best local supervised model</text>
+    <g stroke="#d1d5db" stroke-width="1">
+      <line x1="240" y1="94" x2="240" y2="330"/>
+      <line x1="365" y1="94" x2="365" y2="330"/>
+      <line x1="490" y1="94" x2="490" y2="330"/>
+      <line x1="615" y1="94" x2="615" y2="330"/>
+      <line x1="740" y1="94" x2="740" y2="330"/>
+    </g>
+    <g font-size="15">
+      <text x="24" y="142">BANKING77</text>
+      <text x="24" y="222">GoEmotions</text>
+      <text x="24" y="302">MultiEURLEX</text>
+    </g>
+    <g fill="#1d4ed8">
+      <rect x="240" y="110" width="422.25" height="24"/>
+      <rect x="240" y="190" width="171.85" height="24"/>
+      <rect x="240" y="270" width="233.55" height="24"/>
+    </g>
+    <g fill="#b45309">
+      <rect x="240" y="143" width="449.05" height="24"/>
+      <rect x="240" y="223" width="270.55" height="24"/>
+      <rect x="240" y="303" width="300.65" height="24"/>
+    </g>
+    <g font-size="14">
+      <text x="670" y="128">0.8445</text>
+      <text x="697" y="161">0.8981</text>
+      <text x="420" y="208">0.3437</text>
+      <text x="519" y="241">0.5411</text>
+      <text x="482" y="288">0.4671</text>
+      <text x="549" y="321">0.6013</text>
+    </g>
+    <g font-size="13" text-anchor="middle">
+      <text x="240" y="351">0.00</text>
+      <text x="365" y="351">0.25</text>
+      <text x="490" y="351">0.50</text>
+      <text x="615" y="351">0.75</text>
+      <text x="740" y="351">1.00</text>
+    </g>
+    <text x="24" y="379" font-size="13">Compare models within each dataset; the label spaces differ.</text>
+    <text x="24" y="400" font-size="13">MultiEURLEX uses unequal context: local reads 256 tokens; Jev reads up to 100,000 characters.</text>
+  </g>
+</svg>
