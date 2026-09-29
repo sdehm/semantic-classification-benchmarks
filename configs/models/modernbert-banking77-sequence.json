@@ -1,0 +1,20 @@
+{
+  "id": "answerdotai/ModernBERT-base",
+  "revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+  "license": "Apache-2.0",
+  "classifier_pooling": "cls",
+  "max_length": 256,
+  "training": {
+    "loss": "cross_entropy",
+    "epochs": 2,
+    "batch_size": 8,
+    "learning_rate": 2e-05,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.01,
+    "gradient_clip_norm": 1.0,
+    "seed": 20260920
+  },
+  "inference": {
+    "batch_size": 1
+  }
+}
