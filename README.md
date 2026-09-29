@@ -8,12 +8,13 @@ replacement for Jev.
 
 ## Results
 
-All scores below are from frozen, complete test runs. Macro F1 is meaningful
-within a dataset, not across the three different label spaces.
+The original Jev and local comparison used frozen, complete test runs. The
+sequence-head results were measured later and are exploratory. Macro F1 is
+meaningful within a dataset, not across different label spaces.
 
-![Frozen test macro F1 for Jev and the best local supervised model on each dataset](assets/test-macro-f1.svg)
+![Test macro F1 for Jev, the earlier local model, and the later exploratory sequence head on each dataset](assets/test-macro-f1.svg)
 
-| Dataset (test size) | Local reference | Jev | Best local supervised model |
+| Dataset (test size) | Local reference | Jev | Earlier local supervised model |
 | --- | ---: | ---: | ---: |
 | BANKING77 (3,080) | Frozen embeddings + logistic regression **0.8816**; zero-shot NLI **0.6207** | Choice **0.8445** | Fine-tuned sentence-transformer + prototypes **0.8981** |
 | GoEmotions (5,427) | Frozen embeddings + one-vs-rest logistic regression **0.3335** | Noul **0.3437** | Fine-tuned sigmoid/BCE **0.5411** |
@@ -23,6 +24,24 @@ These are **test macro F1** values. Jev narrowly beat the frozen linear
 GoEmotions baseline on that metric, but the fine-tuned model led on all three
 tasks. On GoEmotions, fine-tuned BCE also led on micro F1 (0.5929 versus
 0.3923 for Jev) and exact-label-set match (0.4712 versus 0.2668).
+
+We later fine-tuned the standard ModernBERT
+`AutoModelForSequenceClassification` CLS head on the **same prepared training
+sets**. Its test macro F1 was higher than the earlier local model
+on all three tasks:
+
+| Dataset | Earlier local model | Sequence-classification head |
+| --- | ---: | ---: |
+| BANKING77 | 0.8981 | **0.9234** |
+| GoEmotions | 0.5411 | **0.5443** |
+| MultiEURLEX level 1 | 0.6013 | **0.6104** |
+
+The sequence-head comparison is exploratory: we had already examined these
+test splits, so it is not a new holdout result. It uses cross-entropy for
+BANKING77 and weighted BCE with the same label policies for the multi-label
+tasks. MultiEURLEX uses the same leading-256 context as the earlier local
+model. Its head, pooling, and (for BANKING77) training objective differ, so
+the gains cannot be attributed to the head alone.
 
 The long-document comparison is not equal-context. The local MultiEURLEX model
 reads only the leading 256 tokenizer tokens; 4,971 of 5,000 test documents
@@ -57,9 +76,10 @@ into a local model.
 The dataset manifests in `configs/datasets/` pin source revisions and
 integrity checks. `prepare-*` writes Parquet records under Git-ignored
 `data/`. Predictions, model weights, and checkpoints remain under
-Git-ignored `runs/`. Only training and validation data informed model,
-criterion, context, and threshold selection; the selected configurations
-were evaluated once on each official test partition.
+Git-ignored `runs/`. For the original comparison, only training and
+validation data informed model, criterion, context, and threshold selection;
+the selected configurations were evaluated once on each official test
+partition. The sequence-classification extension followed that evaluation.
 
 Local training and inference used PyTorch on Apple Silicon MPS, with Polars
 for data work and Go for the common schema, metrics, and Jev API runner.
@@ -82,6 +102,10 @@ checkpoint. No local model uses Jev responses as training targets.
   candidate scored 0.6231 validation macro F1, below leading-256's
   0.6418; leading-256 was selected before test. Jev asked 21 independent
   Noul questions over the configured `document` state.
+
+The standard sequence head is the simplest task-specific fine-tuning example.
+The earlier models remain for the original frozen comparison; BANKING77's
+sentence-transformer also provides reusable embeddings.
 
 Metrics are calculated from prediction artifacts, not self-reported by the
 runners. Multi-label evaluation includes exact match, micro/macro F1,
@@ -115,7 +139,35 @@ uv sync
 go run ./cmd/benchmark prepare-banking77
 go run ./cmd/benchmark prepare-goemotions
 go run ./cmd/benchmark prepare-multieurlex
+```
 
+`prepare-multieurlex` verifies and caches a roughly 787 MB source archive
+under `data/`. The standard sequence head trains on the same prepared records,
+with cross-entropy for BANKING77 and weighted BCE for the multi-label tasks.
+Run these **new validation** models one at a time; weights and predictions
+stay under ignored `runs/`:
+
+```sh
+uv run python python/sequence_classification_baseline.py --task banking77 \
+  --model-output runs/reproduction/sequence-banking77.model \
+  --output runs/reproduction/sequence-banking77.validation.parquet
+uv run python python/sequence_classification_baseline.py --task goemotions \
+  --model-output runs/reproduction/sequence-goemotions.model \
+  --output runs/reproduction/sequence-goemotions.validation.parquet
+uv run python python/sequence_classification_baseline.py --task multieurlex \
+  --model-output runs/reproduction/sequence-multieurlex.model \
+  --output runs/reproduction/sequence-multieurlex.validation.parquet
+```
+
+Pinned hyperparameters are in `configs/models/`. Multi-label thresholds are
+selected on validation; GoEmotions and MultiEURLEX retain their original
+fallback policies. MultiEURLEX uses only the leading 256 tokens. Pass
+`--dry-run` to inspect a run without training, or `--load-model` with its saved
+directory to evaluate another split without retraining.
+
+The earlier fine-tunes remain available to reproduce the original method:
+
+```sh
 uv run python python/sentence_transformer_baseline.py \
   --model-output runs/reproduction/banking77.model \
   --output runs/reproduction/banking77.validation.parquet --dry-run
@@ -128,12 +180,9 @@ uv run python python/multieurlex_bce_baseline.py \
   --output runs/reproduction/multieurlex.validation.parquet --dry-run
 ```
 
-`prepare-multieurlex` verifies and caches a roughly 787 MB source archive
-under `data/`. Remove `--dry-run` to train **new validation** models under
-`runs/reproduction/`; the pinned hyperparameters are in `configs/models/`,
-and each run selects its threshold from validation. The original trained
-weights are not published. The alternate frozen
-embedding, NLI, and one-vs-rest baselines have separate scripts in `python/`.
+Remove `--dry-run` to train those new validation models. The original trained
+weights are not published. Frozen embedding, NLI, and one-vs-rest baselines
+have separate scripts in `python/`.
 The common Go evaluator accepts prediction Parquet files:
 
 ```sh
