@@ -8,42 +8,30 @@ replacement for Jev.
 
 ## Results
 
-The original Jev and local comparison used frozen, complete test runs. The
-sequence-head results were measured later and are exploratory. Macro F1 is
-meaningful within a dataset, not across different label spaces.
+All scores are test macro F1; compare models within a dataset, not across
+different label spaces.
 
-![Test macro F1 for Jev, the earlier local model, and the later exploratory sequence head on each dataset](assets/test-macro-f1.svg)
+![Test macro F1 for Jev, a custom ModernBERT classifier, and a ModernBERT sequence head on each dataset](assets/test-macro-f1.svg)
 
-| Dataset (test size) | Local reference | Jev | Earlier local supervised model |
-| --- | ---: | ---: | ---: |
-| BANKING77 (3,080) | Frozen embeddings + logistic regression **0.8816**; zero-shot NLI **0.6207** | Choice **0.8445** | Fine-tuned sentence-transformer + prototypes **0.8981** |
-| GoEmotions (5,427) | Frozen embeddings + one-vs-rest logistic regression **0.3335** | Noul **0.3437** | Fine-tuned sigmoid/BCE **0.5411** |
-| English MultiEURLEX level 1 (5,000) | — | Noul **0.4671** | Fine-tuned leading-256 sigmoid/BCE **0.6013** |
+| Dataset (test size) | Other local references | Jev | ModernBERT: custom classifier | ModernBERT: sequence head |
+| --- | ---: | ---: | ---: | ---: |
+| BANKING77 (3,080) | Frozen embeddings + logistic regression **0.8816**; zero-shot NLI **0.6207** | Choice **0.8445** | Sentence-transformer + prototypes **0.8981** | CLS + cross-entropy **0.9234** |
+| GoEmotions (5,427) | Frozen embeddings + one-vs-rest logistic regression **0.3335** | Noul **0.3437** | Mean-pooled weighted BCE **0.5411** | CLS + weighted BCE **0.5443** |
+| English MultiEURLEX level 1 (5,000) | — | Noul **0.4671** | Leading-256 mean-pooled BCE **0.6013** | Leading-256 CLS + weighted BCE **0.6104** |
 
-These are **test macro F1** values. Jev narrowly beat the frozen linear
-GoEmotions baseline on that metric, but the fine-tuned model led on all three
-tasks. On GoEmotions, fine-tuned BCE also led on micro F1 (0.5929 versus
-0.3923 for Jev) and exact-label-set match (0.4712 versus 0.2668).
+Jev and the custom classifiers were selected before the original frozen test
+runs. The sequence head was added after those test results had been reviewed,
+so its full test run is not an independent sealed-holdout comparison. Both
+ModernBERT approaches use the same prepared training sets; the sequence head
+changes pooling and (for BANKING77) the training objective, so differences
+cannot be attributed to the head alone.
 
-We later fine-tuned the standard ModernBERT
-`AutoModelForSequenceClassification` CLS head on the **same prepared training
-sets**. Its test macro F1 was higher than the earlier local model
-on all three tasks:
+Jev narrowly beat the frozen linear GoEmotions baseline on macro F1, but the
+fine-tuned local models led on all three tasks. In the original GoEmotions
+comparison, custom BCE also led on micro F1 (0.5929 versus 0.3923 for Jev)
+and exact-label-set match (0.4712 versus 0.2668).
 
-| Dataset | Earlier local model | Sequence-classification head |
-| --- | ---: | ---: |
-| BANKING77 | 0.8981 | **0.9234** |
-| GoEmotions | 0.5411 | **0.5443** |
-| MultiEURLEX level 1 | 0.6013 | **0.6104** |
-
-The sequence-head comparison is exploratory: we had already examined these
-test splits, so it is not a new holdout result. It uses cross-entropy for
-BANKING77 and weighted BCE with the same label policies for the multi-label
-tasks. MultiEURLEX uses the same leading-256 context as the earlier local
-model. Its head, pooling, and (for BANKING77) training objective differ, so
-the gains cannot be attributed to the head alone.
-
-The long-document comparison is not equal-context. The local MultiEURLEX model
+The long-document comparison is not equal-context. The custom MultiEURLEX model
 reads only the leading 256 tokenizer tokens; 4,971 of 5,000 test documents
 have unselected chunks. Jev reads the full document up to 100,000 Unicode
 characters, then equal head and tail portions with an explicit middle-omission
@@ -104,7 +92,7 @@ checkpoint. No local model uses Jev responses as training targets.
   Noul questions over the configured `document` state.
 
 The standard sequence head is the simplest task-specific fine-tuning example.
-The earlier models remain for the original frozen comparison; BANKING77's
+The custom models remain for the original frozen comparison; BANKING77's
 sentence-transformer also provides reusable embeddings.
 
 Metrics are calculated from prediction artifacts, not self-reported by the
@@ -165,7 +153,7 @@ fallback policies. MultiEURLEX uses only the leading 256 tokens. Pass
 `--dry-run` to inspect a run without training, or `--load-model` with its saved
 directory to evaluate another split without retraining.
 
-The earlier fine-tunes remain available to reproduce the original method:
+The custom fine-tunes remain available to reproduce the original method:
 
 ```sh
 uv run python python/sentence_transformer_baseline.py \

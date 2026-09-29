@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-labelledby="title description">
   <title id="title">Test macro F1 by dataset</title>
-  <desc id="description">BANKING77: Jev 0.8445, earlier local model 0.8981, sequence head 0.9234. GoEmotions: Jev 0.3437, earlier local model 0.5411, sequence head 0.5443. English MultiEURLEX level 1: Jev 0.4671, earlier local model 0.6013, sequence head 0.6104. Jev and the earlier local model are from the original frozen comparison; sequence-head results are later exploratory runs. Compare models within each dataset only; MultiEURLEX uses different input context policies.</desc>
+  <desc id="description">BANKING77: Jev 0.8445, custom ModernBERT classifier 0.8981, ModernBERT sequence head 0.9234. GoEmotions: Jev 0.3437, custom classifier 0.5411, sequence head 0.5443. English MultiEURLEX level 1: Jev 0.4671, custom classifier 0.6013, sequence head 0.6104. The sequence head was added after the original frozen test results were reviewed; it is not an independent sealed-holdout comparison. Compare models within each dataset only; MultiEURLEX uses different input context policies.</desc>
   <rect width="900" height="420" fill="#ffffff"/>
   <g font-family="Arial, Helvetica, sans-serif" fill="#111827">
     <text x="24" y="35" font-size="22" font-weight="bold">Test macro F1 by dataset</text>
     <rect x="240" y="62" width="16" height="16" fill="#1d4ed8"/>
     <text x="264" y="75" font-size="15">Jev</text>
     <rect x="330" y="62" width="16" height="16" fill="#b45309"/>
-    <text x="354" y="75" font-size="15">Earlier local model</text>
-    <rect x="530" y="62" width="16" height="16" fill="#047857"/>
-    <text x="554" y="75" font-size="15">Sequence head (exploratory)</text>
+    <text x="354" y="75" font-size="15">ModernBERT: custom classifier</text>
+    <rect x="610" y="62" width="16" height="16" fill="#047857"/>
+    <text x="634" y="75" font-size="15">ModernBERT: sequence head</text>
     <g stroke="#d1d5db" stroke-width="1">
       <line x1="240" y1="94" x2="240" y2="340"/>
       <line x1="365" y1="94" x2="365" y2="340"/>
@@ -55,7 +55,7 @@
       <text x="615" y="351">0.75</text>
       <text x="740" y="351">1.00</text>
     </g>
-    <text x="24" y="379" font-size="13">Jev and earlier local: original frozen runs. Sequence head: later exploratory run.</text>
+    <text x="24" y="379" font-size="13">Sequence head added after the original test results were reviewed; not a new sealed holdout.</text>
     <text x="24" y="400" font-size="13">MultiEURLEX uses unequal context: local reads 256 tokens; Jev reads up to 100,000 characters.</text>
   </g>
 </svg>
